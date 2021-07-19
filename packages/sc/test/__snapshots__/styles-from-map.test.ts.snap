@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stylesFromMap() generated style mapper correctly maps explicit values 1`] = `"background-color:#ccffff;color:#0000cc;z-index:12;"`;
+
+exports[`stylesFromMap() generated style mapper correctly maps selected values 1`] = `"background-color:#ffffff;color:#00cc00;z-index:10;"`;
