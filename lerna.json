@@ -1,0 +1,26 @@
+{
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com",
+      "yes": true,
+      "verifyAccess": false
+    },
+    "version": {
+      "conventionalCommits": true,
+      "gitTagVersion": false,
+      "ignoreChanges": [
+        "package.json",
+        "package-lock.json",
+        "**/*.md",
+        "**/*.test.ts"
+      ],
+      "message": "chore(release): update package version",
+      "private": false,
+      "push": false
+    }
+  },
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent"
+}

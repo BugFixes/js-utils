@@ -1,0 +1,38 @@
+{
+  "name": "@bugfixes/w1url-utils",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=7.0.0"
+  },
+  "main": "./lib/main/index.js",
+  "module": "./lib/module/index.js",
+  "types": "./lib/types/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "url": "git+https://github.com/bugfixes/js-utils.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/bugfixes/js-utils"
+  },
+  "homepage": "https://bugfix.es",
+  "keywords": [
+    "bugfixes",
+    "util",
+    "url"
+  ],
+  "scripts": {
+    "build": "npm run build:main && npm run build:types",
+    "build:main": "rollup -c",
+    "build:types": "tsc src/*.ts --declaration true --declarationDir './lib/types' --emitDeclarationOnly true",
+    "test": "npm run test:units",
+    "test:units": "jest"
+  },
+  "peerDependencies": {
+    "@babel/runtime": "^7.14.6",
+    "core-js": "^3.15.2"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=7.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "url": "git+https://github.com/bugfixes/js-utils.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/bugfixes/js-utils/issues"
+  },
+  "homepage": "https://bugfix.es",
+  "scripts": {
+    "build": "lerna run build --stream",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublish": "npm run build",
+    "preversion": "npm run test",
+    "release": "lerna version",
+    "setup:hooks": "husky install",
+    "test": "lerna run test --stream"
+  },
+  "devDependencies": {
+    "@bugfixes/babel-preset": "^0.0.1",
+    "@bugfixes/eslint-config": "^0.0.1",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.1",
+    "@rollup/plugin-typescript": "^8.2.3",
+    "@types/jest": "^26.0.24",
+    "conventional-changelog-cli": "^2.1.1",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "lerna": "^4.0.0",
+    "rollup": "^2.53.2",
+    "typescript": "^4.3.5"
+  }
+}
