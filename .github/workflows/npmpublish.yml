@@ -27,7 +27,7 @@ jobs:
         run: npm test
       - name: publish
         run: |
-          npx lerna version ${GITHUB_REF##*/v}
+          npx lerna version ${GITHUB_REF##*/v} --no-git-tag-version
           npx lerna publish from-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
