@@ -1,4 +1,4 @@
-name: Publish
+name: NPM Publish
 on:
   release:
     types:
@@ -13,7 +13,7 @@ jobs:
         with:
           always-auth: true
           node-version: 15
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://npm.pkg.github.com
           scope: "@bugfixes"
       - name: install deps
         run: npm install --ignore-scripts
@@ -25,7 +25,11 @@ jobs:
           npm run prepare --if-present
       - name: tests
         run: npm test
+      - name: update version
+        run: |
+          export tag=${GITHUB_REF##*/v}
+          npm --no-git-tag-version version $tag
       - name: publish
-        run: npx lerna publish from-package
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
