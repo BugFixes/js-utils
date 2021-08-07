@@ -25,7 +25,25 @@ jobs:
           npm run prepare --if-present
       - name: tests
         run: npm test
+      - name: version
+        run: |
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/array
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/datetime
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/object
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/react
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/sc
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/string
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/timer
+          npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/url
       - name: publish
-        run: npx lerna publish from-package
+        run: |
+          npm publish ./packages/array
+          npm publish ./packages/datetime
+          npm publish ./packages/object
+          npm publish ./packages/react
+          npm publish ./packages/sc
+          npm publish ./packages/string
+          npm publish ./packages/timer
+          npm publish ./packages/url
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
