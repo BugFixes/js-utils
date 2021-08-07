@@ -11,7 +11,7 @@ describe('timeout()', function () {
     const after = Date.now()
     const delta = after - before
 
-    expect(delta).toBeGreaterThanOrEqual(200)
+    expect(delta).toBeGreaterThanOrEqual(150)
     expect(delta).toBeLessThanOrEqual(500) // Account for tiny differences in code execution time
   })
 })
