@@ -28,6 +28,7 @@
     "build": "npm run build:main && npm run build:types",
     "build:main": "rollup -c",
     "build:types": "tsc src/*.ts --declaration true --declarationDir './lib/types' --emitDeclarationOnly true",
+    "prepublish": "npm run build",
     "test": "npm run test:units",
     "test:units": "jest"
   },
