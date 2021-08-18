@@ -35,6 +35,8 @@ jobs:
           npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/string
           npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/timer
           npm --no-git-tag-version version ${GITHUB_REF##*/v} -workspace ./packages/url
+      - name: build
+        run: npm run build
       - name: publish
         run: |
           npm publish ./packages/array
